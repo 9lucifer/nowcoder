@@ -1,8 +1,10 @@
 package com.nowcoder.community;
 
 import com.nowcoder.community.dao.DiscussPostMapper;
+import com.nowcoder.community.dao.LoginTicketMapper;
 import com.nowcoder.community.dao.UserMapper;
 import com.nowcoder.community.entity.DiscussPost;
+import com.nowcoder.community.entity.LoginTicket;
 import com.nowcoder.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class MapperTest {
     private UserMapper userMapper;
     @Autowired
     private DiscussPostMapper discussPostMapper;
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
 
 
     @Test
@@ -68,5 +72,19 @@ public class MapperTest {
 
         int rows = discussPostMapper.selectDiscussPostRows(0);
         System.out.println(rows);
+    }
+
+    @Test
+    public void testTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setTicket("10010");
+        loginTicket.setUserId(101);
+        loginTicket.setExpired(new Date());
+        loginTicket.setStatus(1);
+        System.out.println(loginTicketMapper.insertLoginTicket(loginTicket));
+
+        System.out.println(loginTicketMapper.selectByTicket(loginTicket.getTicket()));
+
+        loginTicketMapper.updateStatus("10010",2);
     }
 }

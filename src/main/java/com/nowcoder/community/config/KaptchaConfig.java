@@ -20,7 +20,7 @@ public class KaptchaConfig {
         properties.setProperty("kaptcha.textproducer.font.size", "32");
         properties.setProperty("kaptcha.textproducer.char.string", "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
         properties.setProperty("kaptcha.textproducer.char.length", "4");
-        properties.setProperty("kaptcha.noise.impl","4");
+        properties.setProperty("kaptcha.noise.impl","com.google.code.kaptcha.impl.NoNoise");
 
 
         DefaultKaptcha defaultKaptcha = new DefaultKaptcha();

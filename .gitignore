@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Ignore Configuration Files ###
+# Ignore application.properties and application.yml in the resources folder
+src/main/resources/application.properties
+src/main/resources/application.yml
+
+# If you use environment-specific configurations
+src/main/resources/application-*.properties
+src/main/resources/application-*.yml
